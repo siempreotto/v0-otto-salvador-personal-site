@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
-  title: 'Professional Portfolio',
-  description: 'Personal professional website showcasing my work, testimonials, and social links',
+  title: 'Otto Salvador - Entrepreneur & Product Leader',
+  description: 'Catholic entrepreneur and product leader committed to building technology that serves people and the common good.',
   generator: 'v0.app',
   icons: {
     icon: [
