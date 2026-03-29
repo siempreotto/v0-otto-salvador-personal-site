@@ -1,4 +1,4 @@
-# v0-otto-s-personal-site
+# v0-otto-salvador-personal-site
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
 
