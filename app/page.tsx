@@ -1,5 +1,7 @@
 import { LinkButton } from "@/components/link-button"
 import { ProfileSection } from "@/components/profile-section"
+import { TestimonialsSection } from "@/components/testimonials-section"
+import { TrackRecordSection } from "@/components/track-record-section"
 import {
   User,
   MessageSquare,
@@ -50,8 +52,9 @@ const allLinks = buttonRows.flat()
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto max-w-[1120px] px-5 md:px-8 lg:px-10 py-10 lg:py-14">
+    <main className="min-h-screen bg-background scroll-smooth">
+      {/* Hero Section */}
+      <section className="mx-auto max-w-[1120px] px-5 md:px-8 lg:px-10 py-10 lg:py-14">
         {/* Header */}
         <header className="mb-8 lg:mb-10">
           <h1 className="text-[clamp(48px,5vw,64px)] font-bold text-foreground text-center mb-5 tracking-[0.04em]">
@@ -98,7 +101,23 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Divider */}
+      <div className="mx-auto max-w-[1120px] px-5 md:px-8 lg:px-10">
+        <hr className="border-border" />
       </div>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* Divider */}
+      <div className="mx-auto max-w-[1120px] px-5 md:px-8 lg:px-10">
+        <hr className="border-border" />
+      </div>
+
+      {/* Track Record Section */}
+      <TrackRecordSection />
     </main>
   )
 }
