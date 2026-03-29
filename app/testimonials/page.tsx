@@ -1,6 +1,8 @@
 "use client"
 
+import Link from "next/link"
 import Image from "next/image"
+import { ArrowLeft } from "lucide-react"
 
 interface Testimonial {
   name: string
@@ -101,14 +103,37 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   )
 }
 
-export function TestimonialsSection() {
+export default function TestimonialsPage() {
   return (
-    <section id="testimonials" className="py-16 lg:py-24">
-      <div className="mx-auto max-w-[1120px] px-5 md:px-8 lg:px-10">
-        <h2 className="font-mono font-bold text-foreground text-[clamp(34px,4vw,48px)] text-center mb-12 lg:mb-16 tracking-wide">
+    <main className="min-h-screen bg-background font-mono">
+      {/* Top guide line with label */}
+      <div className="relative w-full pt-6 pb-4">
+        <div className="absolute top-1/2 left-0 right-0 h-px bg-border" />
+        <div className="relative flex justify-center">
+          <span className="bg-background px-3 text-[11px] tracking-[0.08em] text-cyan-600/70">
+            #testimonials
+          </span>
+        </div>
+      </div>
+
+      {/* Home button - top right */}
+      <div className="absolute top-5 right-5 md:right-8">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 bg-white hover:bg-gray-50 border border-border px-3 py-1.5 text-[12px] tracking-[0.04em] text-foreground transition-colors"
+        >
+          <ArrowLeft className="w-3 h-3 text-accent" strokeWidth={2.5} />
+          Home
+        </Link>
+      </div>
+
+      {/* Content */}
+      <div className="mx-auto max-w-[1100px] px-5 md:px-6 lg:px-8 pt-8 pb-16">
+        {/* Heading */}
+        <h1 className="text-[clamp(38px,6vw,64px)] font-bold text-[#3f3f3f] tracking-[0.02em] mb-12 lg:mb-16 text-center">
           Testimonials
-        </h2>
-        
+        </h1>
+
         {/* Desktop: 3 columns */}
         <div className="hidden lg:grid grid-cols-3 gap-x-8 gap-y-12">
           {testimonials.map((testimonial, index) => (
@@ -130,6 +155,6 @@ export function TestimonialsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </main>
   )
 }

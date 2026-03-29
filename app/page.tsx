@@ -1,6 +1,5 @@
 import { LinkButton } from "@/components/link-button"
 import { ProfileSection } from "@/components/profile-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
 import { TrackRecordSection } from "@/components/track-record-section"
 import {
   User,
@@ -23,7 +22,7 @@ import {
 const buttonRows = [
   [
     { label: "About", icon: User, href: "/about" },
-    { label: "Testimonials", icon: MessageSquare, href: "#testimonials" },
+    { label: "Testimonials", icon: MessageSquare, href: "/testimonials" },
     { label: "My track record", icon: Award, href: "#track-record" },
   ],
   [
@@ -102,14 +101,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Divider */}
-      <div className="mx-auto max-w-[1120px] px-5 md:px-8 lg:px-10">
-        <hr className="border-border" />
-      </div>
-
-      {/* Testimonials Section */}
-      <TestimonialsSection />
 
       {/* Divider */}
       <div className="mx-auto max-w-[1120px] px-5 md:px-8 lg:px-10">
