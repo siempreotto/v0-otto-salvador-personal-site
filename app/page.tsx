@@ -20,7 +20,7 @@ import {
 // Button rows matching original Carrd layout
 const buttonRows = [
   [
-    { label: "About", icon: User, href: "#about" },
+    { label: "About", icon: User, href: "/about" },
     { label: "Testimonials", icon: MessageSquare, href: "#testimonials" },
     { label: "My track record", icon: Award, href: "#track-record" },
   ],
