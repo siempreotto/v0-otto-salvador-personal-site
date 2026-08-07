@@ -109,7 +109,7 @@ export default function KnowledgeGPTPage() {
         <div className="absolute top-1/2 left-0 right-0 h-px bg-border" />
         <div className="relative flex justify-center">
           <span className="bg-background px-3 text-[11px] tracking-[0.08em] text-cyan-600/70">
-            #proyectos / knowledge-gpt
+            #portfolio / knowledge-gpt
           </span>
         </div>
       </div>
@@ -117,11 +117,11 @@ export default function KnowledgeGPTPage() {
       {/* Back button */}
       <div className="absolute top-5 right-5 md:right-8">
         <Link
-          href="/proyectos"
+          href="/portfolio"
           className="inline-flex items-center gap-1.5 bg-white hover:bg-gray-50 border border-border px-3 py-1.5 text-[12px] tracking-[0.04em] text-foreground transition-colors"
         >
           <ArrowLeft className="w-3 h-3 text-accent" strokeWidth={2.5} />
-          Proyectos
+          Portfolio
         </Link>
       </div>
 
@@ -170,11 +170,11 @@ export default function KnowledgeGPTPage() {
               El problema
             </span>
             <h2 className="text-[22px] md:text-[26px] font-bold text-foreground tracking-[0.02em] text-balance">
-              Las herramientas de "chat con tus documentos" suelen ser servicios en la nube
+              Las herramientas de &ldquo;chat con tus documentos&rdquo; suelen ser servicios en la nube
             </h2>
             <p className="text-[15px] md:text-[16px] text-foreground-muted leading-[1.85]">
               Subes tus PDFs a un tercero, pagas una suscripción aparte del costo del modelo,
-              y confías en que el modelo no "alucine" respuestas que no están realmente en tus
+              y confías en que el modelo no &ldquo;alucine&rdquo; respuestas que no están realmente en tus
               documentos. Knowledge GPT ataca las tres cosas a la vez.
             </p>
           </div>
