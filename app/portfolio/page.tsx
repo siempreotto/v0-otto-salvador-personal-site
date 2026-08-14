@@ -17,6 +17,13 @@ const projects = [
     tags: ["Tauri", "React", "TypeScript", "Rust", "SQLite"],
     href: "/portfolio/knowledgegpt",
   },
+  {
+    title: "Open Wisp by Otto",
+    oneLiner:
+      "Dictado de escritorio para macOS con Option + Space, HUD sin robar foco y transcripción con OpenAI u OpenRouter — sin backend, sin cuenta.",
+    tags: ["Tauri", "Rust", "React", "TypeScript", "cpal"],
+    href: "/portfolio/open-wisp-by-otto",
+  },
 ]
 
 export default function PortfolioPage() {
