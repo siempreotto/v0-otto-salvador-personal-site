@@ -42,7 +42,7 @@ const buttonRows = [
   ],
   [
     { label: "Certificates", icon: FolderOpen, href: "#certificates" },
-    { label: "Portfolio", icon: Code, href: "#portfolio" },
+    { label: "Portfolio", icon: Code, href: "/portfolio" },
   ],
 ]
 
