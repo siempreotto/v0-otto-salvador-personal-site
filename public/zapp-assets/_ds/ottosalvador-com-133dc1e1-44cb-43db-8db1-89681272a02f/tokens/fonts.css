@@ -1,0 +1,4 @@
+/* IBM Plex Mono is the single typeface of the brand.
+   No binaries were shipped with the source kit, so the family is loaded from
+   Google Fonts (the same source the kit's <link> used). Weights 400/500/600/700 + italic 400. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");

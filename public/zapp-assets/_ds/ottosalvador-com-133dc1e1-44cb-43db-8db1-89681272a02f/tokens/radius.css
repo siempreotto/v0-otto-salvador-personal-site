@@ -1,0 +1,8 @@
+:root{
+  --radius:0.25rem;                     /* 4px base */
+  --radius-sm:calc(var(--radius) - 2px);/* 2px */
+  --radius-md:var(--radius);            /* 4px */
+  --radius-lg:calc(var(--radius) + 2px);/* 6px */
+  --radius-xl:calc(var(--radius) + 4px);/* 8px */
+  --radius-full:9999px;                 /* avatars only */
+}

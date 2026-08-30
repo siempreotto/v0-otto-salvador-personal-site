@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zapp — Reporte completo de producto · Otto Salvador</title>
+<link rel="stylesheet" href="_ds/ottosalvador-com-133dc1e1-44cb-43db-8db1-89681272a02f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/ottosalvador-com-133dc1e1-44cb-43db-8db1-89681272a02f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/ottosalvador-com-133dc1e1-44cb-43db-8db1-89681272a02f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/ottosalvador-com-133dc1e1-44cb-43db-8db1-89681272a02f/tokens/radius.css">
+<link rel="stylesheet" href="_ds/ottosalvador-com-133dc1e1-44cb-43db-8db1-89681272a02f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/ottosalvador-com-133dc1e1-44cb-43db-8db1-89681272a02f/tokens/motion.css">
+<link rel="stylesheet" href="_ds/ottosalvador-com-133dc1e1-44cb-43db-8db1-89681272a02f/tokens/base.css">
+<style>
+doc-page:not(:defined){visibility:hidden}
+doc-page{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.4pt;line-height:1.72;color:var(--foreground)}
+doc-page *{font-family:inherit}
+h1,h2,h3,h4{font-weight:600;margin:0}
+h1{font-size:22pt;letter-spacing:.01em;line-height:1.32}
+h2{font-size:14pt;letter-spacing:.03em;margin:34px 0 4px;padding-top:20px;border-top:1px solid var(--border)}
+h3{font-size:11pt;letter-spacing:.03em;margin:22px 0 6px}
+h4{font-size:10pt;letter-spacing:.05em;margin:16px 0 4px;color:var(--foreground-muted)}
+p{margin:0 0 11px;max-width:none}
+ul,ol{margin:0 0 12px;padding-left:20px}
+li{margin-bottom:5px}
+a{color:var(--accent)}a:hover{color:var(--foreground)}
+.ey{font-size:8.5pt;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.sub{font-size:10.5pt;color:var(--foreground-muted);margin:0 0 14px}
+.small{font-size:9.5pt;line-height:1.65;color:var(--muted-foreground)}
+.tag{display:inline-block;font-size:8pt;letter-spacing:.09em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--border);color:var(--muted-foreground);margin-right:4px;white-space:nowrap}
+.tag.f{border-color:var(--foreground);color:var(--foreground)}
+.tag.i{border-color:var(--muted-foreground)}
+.tag.h{border-color:var(--accent);color:var(--accent)}
+.callout{border:1px solid var(--border);border-left:3px solid var(--foreground);padding:14px 16px;margin:16px 0;break-inside:avoid;background:var(--card)}
+.callout.a{border-left-color:var(--accent)}
+.callout .lab{font-size:8.5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-foreground);margin-bottom:8px}
+.callout p:last-child{margin-bottom:0}
+.kv{margin:0}
+.kv dt{font-size:9.5pt;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:12px}
+.kv dd{margin:3px 0 0;font-size:10.5pt}
+table{border-collapse:collapse;width:100%;font-size:9pt;margin:14px 0;line-height:1.55;table-layout:fixed}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);vertical-align:top;overflow-wrap:break-word}
+th{font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);font-weight:500;border-bottom:1px solid var(--foreground)}
+tr{break-inside:avoid}
+.toc{columns:2;column-gap:32px;font-size:10pt;margin:18px 0 0}
+.toc div{margin-bottom:4px;break-inside:avoid}
+.toc span{color:var(--muted-foreground);margin-right:8px}
+.chap{break-before:page}
+.cover{padding-bottom:8px}
+.rule{border:0;border-top:1px solid var(--border);margin:26px 0}
+.metagrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;font-size:10pt;margin:18px 0 0}
+.metagrid b{display:block;font-size:8.5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground);font-weight:500;margin-bottom:2px}
+footer.doc{margin-top:40px;padding-top:14px;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<doc-page margin="0.85in">
+
+<section class="cover">
+<p class="ey">Memo de estrategia de producto · 27 de agosto de 2026</p>
+<h1>Zapp no tiene un problema de canal. Tiene una decisión de capa.</h1>
+<p class="sub">Cinco competidores ya envían remesas por WhatsApp desde Estados Unidos. Ninguno resuelve la transacción completa dentro de la conversación, y ninguno le da a una cooperativa centroamericana lo único que no puede comprar: la relación con el remitente. Este documento es cómo abordaría el producto B2B de Zapp — qué construiría, qué me negaría a construir, y qué necesito saber antes de comprometer ingeniería.</p>
+<div class="metagrid">
+<div><b>Autor</b>Otto Salvador · ottosalvador.com/zapp</div>
+<div><b>Audiencia</b>Liderazgo de Zapp</div>
+<div><b>Base de evidencia</b>4 investigaciones, verificación independiente y prueba propia del producto</div>
+<div><b>Alcance</b>EE. UU. → México y Centroamérica</div>
+</div>
+<hr class="rule">
+<h3 style="margin-top:0">Cómo leer este documento</h3>
+<p>Cada afirmación material está etiquetada, porque en producto financiero confundir dato con juicio es cómo se construye el producto equivocado durante seis meses.</p>
+<p><span class="tag f">Hecho</span> verificable en fuente primaria o secundaria citada. <span class="tag i">Inferencia</span> mi lectura sobre hechos verificados. <span class="tag h">Hipótesis</span> no verificada; requiere investigación primaria.</p>
+<p>Donde no hay evidencia, lo digo. Ninguna cifra de esta síntesis es una proyección inventada, y varias secciones terminan declarando qué señal invalidaría la recomendación que acabo de hacer.</p>
+<div class="toc">
+<div><span>01</span>La prueba del producto</div>
+<div><span>02</span>Lectura inicial: siete observaciones</div>
+<div><span>03</span>Tesis ejecutiva</div>
+<div><span>04</span>La frontera de plataforma</div>
+<div><span>05</span>ICP: a quién le vendería</div>
+<div><span>06</span>Bancos contra cooperativas</div>
+<div><span>07</span>Geografía del corredor</div>
+<div><span>08</span>Rails financieros</div>
+<div><span>09</span>Stablecoins: qué resuelven y qué no</div>
+<div><span>10</span>Plataforma configurable o a medida</div>
+<div><span>11</span>Build / Buy / Partner / Orchestrate</div>
+<div><span>12</span>Panorama competitivo por capa</div>
+<div><span>13</span>Qué está realmente diferenciado</div>
+<div><span>14</span>Oportunidades de producto</div>
+<div><span>15</span>Modelo de negocio</div>
+<div><span>16</span>Árbol de métricas</div>
+<div><span>17</span>Riesgos</div>
+<div><span>18</span>Ideas que vale la pena desafiar</div>
+<div><span>19</span>Preguntas al liderazgo</div>
+<div><span>20</span>Primeros 90 días</div>
+<div><span>21</span>Conclusión</div>
+</div>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">01 · La prueba del producto</h2>
+<p class="sub">Antes de opinar sobre la estrategia, usé el producto. Envié dinero desde WhatsApp y grabé el recorrido completo.</p>
+<p><span class="tag i">Inferencia</span> El producto es intuitivo, porque está donde hoy LATAM se comunica. No hay descarga, no hay registro previo, no hay curva de aprendizaje: el usuario escribe en el mismo lugar donde le escribe a su familia. Ese es el activo, y no es pequeño.</p>
+<p>La fricción aparece después. El flujo entrega un enlace, y al abrirlo el usuario sale de WhatsApp hacia una página externa donde el formulario está repartido en varias páginas. Cuatro de los seis momentos del recorrido ocurren fuera del canal donde empezó la conversación.</p>
+<table>
+<thead><tr><th style="width:22%">Paso</th><th style="width:14%">Dónde ocurre</th><th>Lectura de producto</th></tr></thead>
+<tbody>
+<tr><td><b>La conversación</b></td><td>En el chat</td><td>El único paso que ocurre donde el usuario ya estaba. Es la parte que Zapp hace mejor que nadie.</td></tr>
+<tr><td><b>El salto</b></td><td>Fuera</td><td>Al abrir el enlace cambia la aplicación, la sesión y la confianza visual: el usuario dejó la marca que conocía. Primer punto de abandono.</td></tr>
+<tr><td><b>Identidad</b></td><td>Fuera</td><td>Registro y verificación del remitente. Es un requisito regulatorio, no un defecto de diseño; la pregunta de producto es cuántas pantallas cuesta cumplirlo.</td></tr>
+<tr><td><b>El formulario, por partes</b></td><td>Fuera</td><td>Monto, beneficiario, destino y método viven en páginas distintas. Cada avance es una decisión que el usuario puede posponer, y posponer una remesa significa cerrar la pestaña.</td></tr>
+<tr><td><b>Fondeo</b></td><td>Fuera</td><td>Donde se decide el margen y también la exposición fiscal: el impuesto federal del 1 % grava el fondeo en efectivo y exime ACH, cuenta bancaria y tarjeta.</td></tr>
+<tr><td><b>El regreso</b></td><td>En el chat</td><td>La confirmación vuelve al chat. La transacción cruzó dos aplicaciones para hacer algo que empezó dentro de una sola.</td></tr>
+</tbody>
+</table>
+<div class="callout a">
+<div class="lab">Qué no puedo afirmar</div>
+<p>Esto es una lectura cualitativa de un recorrido, no una medición. No tengo el dato de cuántos usuarios abandonan en cada uno de esos pasos, y ese dato es el activo más valioso que Zapp tiene sin cuantificar. Instrumentar el funnel es el primer accionable de todo el documento, y no requiere ingeniería nueva.</p>
+</div>
+<p><span class="tag i">Inferencia</span> La conclusión comercial es más interesante que la de UX. Si el salto fuera del chat es la fricción principal del producto propio de Zapp, también lo es del producto de todos sus competidores: Ria redirige a un enlace externo y Remitly saca al usuario hacia su entorno web seguro. Nadie ha cerrado la transacción dentro de la conversación. Ese hueco es el producto vendible, y es lo que hace que un white-label de lo que Zapp ya hace tenga sentido para un banco o una institución que quiere liquidar remesas y retener a ese cliente.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">02 · Lectura inicial: siete observaciones</h2>
+<p class="sub">Siete observaciones que cambian la forma de plantear el producto. Cada una separa lo que la evidencia demuestra de lo que yo interpreto y de la decisión que eso habilitaría.</p>
+
+<h3>1. WhatsApp está cerrado como diferenciador — la transacción completa dentro del chat no</h3>
+<p><span class="tag f">Hecho</span> Ria permite enviar por WhatsApp desde EE. UU. a 27 países, incluidos los cinco mercados de Zapp: México, Guatemala, Honduras, El Salvador y Nicaragua. Remitly lanzó WhatsApp Send en abril de 2025, lo expandió a Reino Unido, Canadá y España, añadió «Request Money» con Elektra en México y reportó +62 % de sesiones únicas en Q1-2026 contra Q4-2025. Intermex vende experiencias branded en WhatsApp como producto. Félix es WhatsApp-nativo. El WhatsApp de Ria está limitado a tarjeta de débito, US$1–999,99 por día, y redirige a un enlace externo para pagar.</p>
+<p><span class="tag i">Inferencia</span> Los cinco están en el canal; ninguno ha resuelto la transacción conversacional completa. Usan WhatsApp como embudo hacia un checkout web, no como el lugar donde ocurre la operación. La pregunta competitiva correcta dejó de ser «¿quién tiene WhatsApp?» y pasó a ser «¿quién completa la transacción sin sacar al usuario del chat, y con qué límites?».</p>
+<p><b>Decisión que habilita:</b> el material de venta B2B debe abrir con un dato de conversión propio, no con una lista de funcionalidades. Eso obliga a instrumentar el funnel del B2C actual antes de vender el B2B.</p>
+
+<h3>2. La licencia prestada bloquea justo el producto que la estrategia exige</h3>
+<p><span class="tag f">Hecho</span> Zapp opera como agente autorizado de Spectrum Global Payment Solutions (NMLS 937914). Rails by Intermex vende un RaaS que incluye licencias en jurisdicciones de EE. UU., KYC/AML, procesamiento, fraude y customer care. Una cooperativa guatemalteca no tiene ni puede obtener rápidamente una money transmitter license: los rangos publicados hablan de US$500 k–7 M en bonos por estado y 12–18 meses de auditorías. <span class="small">Confianza alta en el hecho, media en los rangos de costo.</span></p>
+<p><span class="tag i">Inferencia</span> En cualquier operación con una cooperativa centroamericana, la pata regulatoria estadounidense tiene que ser la de Zapp/Spectrum. El segmento que se recomienda como wedge es precisamente el que más presiona la estructura legal más frágil de Zapp. No es un detalle de compliance: define qué se puede vender.</p>
+<p><b>Decisión que habilita:</b> ninguna línea de código de plataforma debería escribirse antes de resolver esto. Hay tres caminos excluyentes: confirmar con Spectrum que su paraguas admite programas white-label de terceros; desplazar el ICP inicial hacia socios que traen su propio marco regulado; o asumir el costo de capital de licencias propias.</p>
+
+<h3>3. Las cooperativas tienen todo el lado receptor y nada del emisor</h3>
+<p><span class="tag f">Hecho</span> MICOOPE/FENACOAC: 24 cooperativas, ~2,9–3,0 millones de asociados, 327 agencias, 1.042 puntos de servicio, producto propio «MI REMESA» — y trabaja con más de 30 empresas remesadoras porque no tiene canal de originación propio. FEDECACES: 1,54 millones de operaciones de remesas en 2025 (+14,55 %), ~8 % de las remesas atendidas en El Salvador, 13 convenios con ETDs, más de 155 puntos; entre enero y julio de 2026 tramitó 890.021 operaciones por US$475,29 millones. FACACH incorporó decenas de cooperativas a la red de Western Union.</p>
+<p><span class="tag i">Inferencia</span> Cada uno de esos convenios es una confesión: la cooperativa tiene la confianza, la sucursal, el efectivo, el KYC local y el cumplimiento local, y externaliza exactamente lo que Zapp sabe hacer. No es un segmento «desatendido» en general; es un segmento con una carencia específica repetida treinta veces.</p>
+<p><b>Decisión que habilita:</b> el producto no es «remesas para cooperativas», es originación estadounidense como servicio. Eso cambia qué se construye: menos payout, más identidad, fondeo, cumplimiento del lado emisor y conversación.</p>
+
+<h3>4. El wedge se está cerrando desde el payout</h3>
+<p><span class="tag f">Hecho</span> AirPak, máster agente exclusivo de Western Union en Centroamérica, firmó con FEDECACES en octubre de 2024 para el cobro de remesas y amplió el acuerdo al envío outbound el 18 de agosto de 2026. Firmó también con SISTEMA FEDECRÉDITO en febrero de 2026.</p>
+<p><span class="tag i">Inferencia</span> Las federaciones no están esperando a que alguien las digitalice: se están integrando más con el incumbente, porque el incumbente les resuelve volumen inmediato. El pitch «digitalícense» ya está ocupado. El que queda libre es más incómodo para Western Union: AirPak les da puntos de pago y ahora también envío; lo que ni AirPak ni Western Union les dan es la relación con el remitente en Estados Unidos ni sus datos.</p>
+<p><b>Decisión que habilita:</b> primer piloto en Guatemala (MICOOPE) u Honduras (FACACH). El Salvador como segunda ola, con un argumento de propiedad del dato y no de digitalización.</p>
+
+<h3>5. El producto que gana el corredor es originación digital más payout en efectivo</h3>
+<p><span class="tag f">Hecho</span> Más del 80 % de los pagos de remesas en Centroamérica siguen siendo en efectivo; en Guatemala, 8 de cada 10 hogares cobran en efectivo. Simultáneamente la participación digital del volumen hacia LatAm cruzó aproximadamente la mitad, y el impuesto federal del 1 % (IRC §4475, vigente desde el 1 de enero de 2026) grava el fondeo en efectivo, money order o cashier’s check, y exime ACH, cuenta bancaria y tarjetas.</p>
+<p><span class="tag i">Inferencia</span> Los dos extremos del corredor se están separando: el envío se digitaliza, el cobro no. Un competidor que exija cuenta bancaria del receptor pierde el 80 % del mercado; una red que solo tenga efectivo pierde el lado que crece. El impuesto no toca el cobro, solo el fondeo, así que acentúa la separación.</p>
+<p><b>Decisión que habilita:</b> no priorizar wallets ni productos all-digital en el destino. Priorizar profundidad de payout en efectivo y calidad del fondeo exento del 1 %.</p>
+
+<h3>6. Bajo el rótulo «B2B» conviven dos negocios distintos</h3>
+<p><span class="tag i">Inferencia</span> Son dos productos. <b>(i) UX conversacional como servicio</b> para quien ya tiene derecho de originación en EE. UU.: venta rápida, integración ligera, márgenes SaaS, competencia frontal con Félix Send. <b>(ii) Originación como servicio</b> para quien solo tiene el lado receptor: venta lenta, integración con core bancario, dependencia regulatoria, competencia con Intermex RaaS. Distinta economía, distinta forma legal, distinto equipo de ventas.</p>
+<p>Una sola plataforma puede servir a ambos. Una sola hoja de ruta no. El error más caro es prometer (ii) mientras se construye (i).</p>
+<p><b>Decisión que habilita:</b> declarar explícitamente cuál se lanza primero. Mi lectura: construir (i) para financiar y validar la plataforma; vender (ii) como el juego estratégico, porque ahí está el moat de red y también todo el riesgo regulatorio.</p>
+
+<h3>7. El moat que reclamamos nunca fue evaluado contra el competidor</h3>
+<p><span class="tag h">Vacío de evidencia</span> Las cuatro investigaciones concluyen que el moat de Zapp está en la profundidad de su configuración multi-tenant, y las cuatro citan las mismas páginas de marketing de Félix for Business y Rails by Intermex. Ninguna aporta documentación de API, pricing, contrato, demo ni testimonio de partner.</p>
+<p><span class="tag i">Inferencia</span> Existe consenso de investigación, no confirmación factual, sobre la única capa donde Zapp reclama su ventaja. Cuatro informes que leen la misma fuente son una fuente, y esa fuente es el material comercial del rival. Zapp podría estar diseñando su diferenciación contra un rival cuya profundidad de configuración es mucho mayor —o mucho menor— de lo que su marketing sugiere. Ambos errores son caros y se cometen en direcciones opuestas.</p>
+<p><b>Decisión que habilita:</b> la primera semana de investigación primaria no es hablar con cooperativas. Es conseguir acceso a un sandbox de Rails by Intermex y a la documentación de Félix for Business, o hablar con uno de los más de veinte partners que Intermex declara haber onboardeado.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">03 · Tesis ejecutiva</h2>
+<p class="sub">Nueve afirmaciones con su nivel de confianza. Si el liderazgo discrepa con una sola de ellas, el roadmap cambia — y por eso están separadas.</p>
+<dl class="kv">
+<dt>Mercado</dt><dd>Corredor EE. UU. → Centroamérica de más de US$52.000 M anuales, en récord y creciendo a doble dígito, con el envío digitalizándose y el cobro todavía en efectivo en más del 80 % de los casos. La oportunidad no es un mercado desatendido: es una asimetría específica. <span class="small">Confianza alta.</span></dd>
+<dt>ICP</dt><dd>Federaciones cooperativas de ahorro y crédito del Triángulo Norte (MICOOPE/FENACOAC, FACACH, FEDECACES), vendiendo a la federación y no a la cooperativa individual. ICP simétrico: credit unions y CDFIs hispanas en EE. UU. <span class="small">Confianza media-alta: el segmento está evidenciado, la disposición a pagar no.</span></dd>
+<dt>Problema</dt><dd>«Tenemos la confianza del socio, la liquidez local y la red para entregar el efectivo, pero somos el último eslabón de un MTO extranjero: perdemos el spread primario y no tenemos los datos del remitente. Queremos nuestro canal directo y no tenemos ni 18 meses de desarrollo ni una licencia en Estados Unidos.» <span class="small">Confianza alta: validado por 30+ convenios de MICOOPE y 13 ETDs de FEDECACES.</span></dd>
+<dt>Wedge</dt><dd>Un canal conversacional white-label de originación EE. UU. hacia una federación, con payout dentro de su propia red, lanzado en semanas sobre rails de terceros. El producto mínimo estratégicamente relevante no es un chatbot: es originación regulada más conversión más configuración de marca. <span class="small">Confianza media-alta.</span></dd>
+<dt>Expansión</dt><dd>Del wedge a la red transnacional: credit union estadounidense (origen, nómina cautiva, marco regulado propio) ↔ cooperativa centroamericana (destino, efectivo, confianza), con Zapp como el switch entre ambas. Existe precedente: el piloto de WOCCU con Visa Direct entre credit unions de EE. UU. y cooperativas guatemaltecas. <span class="small">Confianza media.</span></dd>
+<dt>Frontera de producto</dt><dd>Conversational + orchestration. Zapp posee canal, motor conversacional, máquina de estados transaccional, routing, plataforma de configuración y analytics. Orquesta KYC, AML, FX, settlement, stablecoins y payout. No construye infraestructura financiera. <span class="small">Confianza alta: es además la única opción compatible con su estructura de licencia.</span></dd>
+<dt>Moat</dt><dd>Tres activos, ninguno es WhatsApp: maestría medida de conversión conversacional, profundidad de configuración multi-tenant y framework de adaptadores acumulado por partner. La métrica que gobierna los tres: porcentaje de lanzamientos sin ingeniería a medida. <span class="small">Confianza media: nadie ha evaluado la profundidad de configuración del competidor.</span></dd>
+<dt>Mayor riesgo</dt><dd>La customization trap. Un negocio white-label que dice que sí a todo se convierte en una consultora con diez forks y márgenes negativos. Probabilidad alta e impacto crítico según las cuatro investigaciones. <span class="small">Confianza alta.</span></dd>
+<dt>Mayor incógnita</dt><dd>Si el acuerdo con Spectrum (NMLS 937914) permite anidar programas white-label de terceros. Si la respuesta es no, el ICP recomendado se cae y hay que reconstruir la tesis alrededor de socios con licencia propia. <span class="small">Evidencia insuficiente.</span></dd>
+</dl>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">04 · La frontera de plataforma</h2>
+<div class="callout">
+<div class="lab">La pregunta que gobierna el resto del documento</div>
+<p style="font-size:13pt;line-height:1.6">¿Zapp quiere ser el mejor canal digital de remesas, o la capa de orquestación que permite a cualquier institución lanzar remesas digitales?</p>
+</div>
+<p>De la respuesta depende contra quién compite, cuánto capital necesita, qué regulación asume y qué equipo contrata. No es una pregunta de posicionamiento: es una decisión de arquitectura con consecuencias financieras.</p>
+<table>
+<thead><tr><th>Identidad posible</th><th>Qué implica</th><th>Costo real</th></tr></thead>
+<tbody>
+<tr><td><b>Canal conversacional</b></td><td>La mejor experiencia de envío por chat, marca propia</td><td>Bajo capital, techo bajo: el canal ya no diferencia</td></tr>
+<tr><td><b>UX como servicio</b></td><td>Motor conversacional white-label para quien ya puede originar</td><td>Venta rápida, márgenes SaaS, competencia frontal con Félix Send</td></tr>
+<tr><td><b>Originación como servicio</b></td><td>Programa completo para quien solo tiene el lado receptor</td><td>Dependencia regulatoria total; es donde está el moat de red</td></tr>
+<tr><td><b>Orquestador</b></td><td>Routing entre proveedores de KYC, FX, settlement y payout</td><td>Complejidad de integración creciente; ventaja acumulable</td></tr>
+<tr><td><b>Rails propios</b></td><td>Licencias, tesorería y liquidación propias</td><td>Intensivo en balance y en capital regulatorio; otro negocio</td></tr>
+<tr><td><b>Red transnacional</b></td><td>Switch entre instituciones de origen y de destino</td><td>El mayor efecto de red y el ciclo de venta más largo</td></tr>
+<tr><td><b>Consultora de implementación</b></td><td>Cada cliente, un proyecto</td><td>Nadie la elige; es donde se termina por omisión</td></tr>
+</tbody>
+</table>
+<p><b>Mi recomendación:</b> conversational + orchestration. Construir canal, motor conversacional, máquina de estados, routing, consola de configuración y analytics. Orquestar todo lo demás. Es la única opción compatible con la estructura de licencia actual y la única que no exige capital regulatorio antes de tener volumen.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">05 · ICP: a quién le vendería</h2>
+<p class="sub">El ICP inicial se define por la carencia, no por el tamaño: una institución con red de payout propia y sin canal de origen en Estados Unidos.</p>
+<table>
+<thead><tr><th>Segmento</th><th>Qué trae</th><th>Qué le falta</th><th>Veredicto</th></tr></thead>
+<tbody>
+<tr><td><b>Federaciones cooperativas del Triángulo Norte</b></td><td>Confianza, efectivo, puntos de servicio, KYC y cumplimiento local</td><td>Originación en EE. UU., canal digital, datos del remitente</td><td>ICP inicial. Se vende a la federación, no a la cooperativa</td></tr>
+<tr><td><b>Credit unions y CDFIs hispanas en EE. UU.</b></td><td>Marco regulado propio, base de miembros, nómina cautiva</td><td>Canal conversacional y red de payout en destino</td><td>ICP simétrico. Elimina la dependencia de Spectrum</td></tr>
+<tr><td><b>MTOs medianos</b></td><td>Licencias, volumen, operación</td><td>Experiencia conversacional competitiva</td><td>Venta rápida que financia la plataforma</td></tr>
+<tr><td><b>Bancos regionales</b></td><td>Balance, marca, regulación local</td><td>Velocidad de decisión y apetito digital</td><td>Ciclo largo; segunda ola</td></tr>
+<tr><td><b>Fintechs y wallets de destino</b></td><td>Producto digital</td><td>El 80 % del mercado que cobra en efectivo</td><td>No prioritario</td></tr>
+<tr><td><b>Empleadores y nómina</b></td><td>Volumen recurrente predecible</td><td>Todo lo demás</td><td>Opcionalidad futura, no wedge</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">06 · Bancos contra cooperativas</h2>
+<p class="sub">¿Pueden las cooperativas ser un mejor wedge B2B que los bancos? Sí, pero por razones distintas a las que suelen darse.</p>
+<p><span class="tag i">Inferencia</span> La ventaja de la cooperativa no es que sea más pequeña ni más ágil: es que su carencia es estructural y está documentada por sus propios convenios. Un banco regional puede construir o comprar el canal; una federación cooperativa no puede obtener una licencia estadounidense. La cooperativa además ya demostró disposición a integrar a un tercero en su flujo de remesas — treinta veces.</p>
+<p><b>La advertencia:</b> el ciclo de decisión de una federación es colegiado y su capacidad técnica es heterogénea. Cores distintos entre cooperativas de la misma federación es un riesgo real de diseño de adaptadores, y si aparece, el time-to-live del segundo partner no se parece al del primero.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">07 · Geografía del corredor</h2>
+<p class="sub">El corredor no es homogéneo. El país con mejores datos públicos no es el mejor punto de entrada, y el de mayor crecimiento no es el de menor riesgo.</p>
+<table>
+<thead><tr><th>País</th><th>Situación</th><th>Rol en el plan</th></tr></thead>
+<tbody>
+<tr><td><b>Guatemala</b></td><td>MICOOPE con 1.042 puntos y 30+ convenios; 8 de cada 10 hogares cobran en efectivo</td><td>Primer piloto</td></tr>
+<tr><td><b>Honduras</b></td><td>FACACH con decenas de cooperativas ya integradas a Western Union</td><td>Primer piloto alternativo</td></tr>
+<tr><td><b>El Salvador</b></td><td>Mejores datos públicos, pero es donde el incumbente ha avanzado más: AirPak firmó cobro en 2024 y envío en agosto de 2026</td><td>Segunda ola, con argumento de datos</td></tr>
+<tr><td><b>Nicaragua</b></td><td>Crecimiento alto, riesgo regulatorio y reputacional mayor</td><td>Posterior</td></tr>
+<tr><td><b>México</b></td><td>Corredor más grande y más competido; Remitly ya opera «Request Money» con Elektra</td><td>No es wedge; es escala posterior</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">08 · Rails financieros</h2>
+<p class="sub">Aquí se decide si el producto escala. Todo lo que sigue son modelos a evaluar, no descripciones de la arquitectura actual de Zapp, sobre la que no hay evidencia.</p>
+<table>
+<thead><tr><th>Modelo</th><th>Cuándo conviene</th><th>Qué cuesta</th></tr></thead>
+<tbody>
+<tr><td><b>Prefunding del socio</b></td><td>El socio tiene tesorería y quiere control</td><td>Capital de trabajo del socio; cero balance de Zapp</td></tr>
+<tr><td><b>Prefunding de Zapp</b></td><td>Nunca antes de tener volumen</td><td>Intensivo en balance; cambia el perfil de la empresa</td></tr>
+<tr><td><b>Settlement con stablecoins</b></td><td>El socio no tiene tesorería y el corredor lo permite</td><td>Riesgo de rampa de salida y de cumplimiento local</td></tr>
+<tr><td><b>Netting</b></td><td>Cuando el volumen bidireccional lo justifica</td><td>Complejidad operativa y de conciliación</td></tr>
+<tr><td><b>Rail bancario tradicional</b></td><td>Corredores con infraestructura madura</td><td>Ventanas de liquidación y costo por transacción</td></tr>
+</tbody>
+</table>
+<p><b>Recomendación:</b> arquitectura híbrida y configurable por partner. Prefunding donde el socio tenga tesorería, stablecoins donde no la tenga y el corredor lo permita, netting cuando el volumen lo justifique. Nunca balance propio de Zapp antes de tener volumen.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">09 · Stablecoins: qué resuelven y qué no</h2>
+<p><span class="tag i">Inferencia</span> La conclusión simplista —«las stablecoins resuelven las remesas»— no la sostiene la evidencia. Lo que sí la sostiene es más estrecho y más útil.</p>
+<p><b>Resuelven:</b> el costo y la velocidad del tramo de liquidación entre instituciones, y la alternativa al prefunding para un socio sin tesorería en dólares.</p>
+<p><b>No resuelven:</b> el último kilómetro. El 80 % del cobro sigue siendo en efectivo, y la rampa de salida a moneda local con cumplimiento sigue siendo el cuello de botella y el costo real. Tampoco resuelven la adquisición del remitente ni la conversión.</p>
+<p><b>Rol correcto en el producto:</b> rail de settlement invisible, consumido como API. No producto de consumo, no red propia, no diferenciador de cara al usuario. <span class="small">Confianza baja en cualquier cifra de adopción o de ahorro; alta en el rol arquitectónico.</span></p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">10 · Plataforma configurable o a medida</h2>
+<p class="sub">Es donde los productos B2B de infraestructura financiera mueren. No mueren por competencia: mueren porque el décimo cliente exige lo que el primero no pidió.</p>
+<p><span class="tag i">Inferencia</span> La customization trap no se detecta cuando ocurre. Se detecta dos años después, cuando cada cliente tiene su rama del código, ningún lanzamiento se parece al anterior y el margen por partner es negativo sin que nadie lo haya decidido.</p>
+<h3>Qué debe ser configuración y no código</h3>
+<ul>
+<li>Marca, idioma, tono y contenido del flujo conversacional.</li>
+<li>Límites, monedas, corredores y métodos de fondeo habilitados.</li>
+<li>Proveedor de KYC, umbrales de AML y reglas de escalamiento.</li>
+<li>Red de payout, ventanas de liquidación y reglas de conciliación.</li>
+<li>Reportes, exportaciones y permisos por rol del socio.</li>
+</ul>
+<div class="callout a">
+<div class="lab">La métrica que gobierna la plataforma</div>
+<p>Porcentaje de lanzamientos sin ingeniería a medida. Si esa cifra no se publica internamente cada trimestre, la trampa ya está operando. Un corolario impopular: hay que estar dispuesto a rechazar un contrato grande para defender la frontera, y eso es una decisión de CEO, no de producto.</p>
+</div>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">11 · Build / Buy / Partner / Orchestrate</h2>
+<p class="sub">El principio de fondo: Zapp no debería construir infraestructura solo porque puede. La pregunta útil no es «¿podemos hacerlo?» sino «¿qué perdemos si esto lo opera alguien más?».</p>
+<table>
+<thead><tr><th>Capacidad</th><th>Decisión</th><th>Por qué</th></tr></thead>
+<tbody>
+<tr><td>Canal conversacional y motor de diálogo</td><td><b>Build</b></td><td>Es el activo diferenciado y la fuente del dato de conversión</td></tr>
+<tr><td>Máquina de estados transaccional</td><td><b>Build</b></td><td>Determina la integridad del producto; no se delega</td></tr>
+<tr><td>Consola de configuración multi-tenant</td><td><b>Build</b></td><td>Convierte cada venta en producto en lugar de en proyecto</td></tr>
+<tr><td>Framework de adaptadores de payout</td><td><b>Build</b></td><td>Cada integración difícil debe dejar capacidad reutilizable</td></tr>
+<tr><td>Analytics de funnel y de partner</td><td><b>Build</b></td><td>Es el argumento de venta y el sistema de mejora</td></tr>
+<tr><td>KYC, verificación documental, screening</td><td><b>Buy</b></td><td>Mercado maduro, mejor que cualquier build interno</td></tr>
+<tr><td>Antifraude y scoring</td><td><b>Buy</b></td><td>Depende de datos de red que Zapp no tiene</td></tr>
+<tr><td>FX y liquidez</td><td><b>Partner</b></td><td>Requiere balance; el socio o el proveedor lo aporta</td></tr>
+<tr><td>Licencias de money transmitter</td><td><b>Partner</b></td><td>12–18 meses y capital regulatorio; no es el negocio</td></tr>
+<tr><td>Redes de payout en efectivo</td><td><b>Partner</b></td><td>Existen, son locales y son la razón por la que el socio compra</td></tr>
+<tr><td>Rails de stablecoins</td><td><b>Orchestrate</b></td><td>Consumir como API, nunca construir red propia</td></tr>
+<tr><td>Tesorería y settlement</td><td><b>Orchestrate</b></td><td>Configurable por partner; sin balance propio</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">12 · Panorama competitivo por capa</h2>
+<p class="sub">Una lista única de competidores no sirve para decidir nada. Ordenados por capa, aparece quién compite por el mismo cliente, quién es proveedor y quién es incumbente.</p>
+<table>
+<thead><tr><th>Capa</th><th>Quién está</th><th>Relación con Zapp</th></tr></thead>
+<tbody>
+<tr><td><b>Canal conversacional B2C</b></td><td>Ria, Remitly, Intermex, Félix</td><td>Competencia directa; ninguno cierra la transacción en el chat</td></tr>
+<tr><td><b>Plataforma B2B white-label</b></td><td>Félix for Business, Rails by Intermex</td><td>Amenaza principal, en ese orden. Venden hoy lo que Zapp planea vender, con más capital y licencias propias</td></tr>
+<tr><td><b>Payout y último kilómetro</b></td><td>Western Union, AirPak, redes cooperativas</td><td>Incumbente y a la vez proveedor potencial</td></tr>
+<tr><td><b>Infraestructura regulada</b></td><td>Spectrum, proveedores de RaaS</td><td>Dependencia crítica</td></tr>
+<tr><td><b>Settlement</b></td><td>Proveedores de stablecoins y bancos corresponsales</td><td>Proveedor, no competidor</td></tr>
+</tbody>
+</table>
+<p class="small">Advertencia de evidencia: la descripción de Félix for Business y Rails by Intermex proviene de material comercial de esas empresas. No hay documentación técnica, pricing ni testimonio de partner en el expediente. Cualquier afirmación sobre su profundidad de configuración es hipótesis hasta que exista acceso a un sandbox.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">13 · Qué está realmente diferenciado</h2>
+<div class="callout">
+<div class="lab">La pregunta</div>
+<p style="font-size:12.5pt;line-height:1.6">¿WhatsApp es el moat de Zapp, o simplemente el wedge de distribución que permite entrar a construir el moat real?</p>
+</div>
+<p>Mi respuesta: es el wedge, y confundirlo con el moat es el error estratégico más caro disponible ahora mismo. WhatsApp le dio a Zapp acceso a un usuario y aprendizaje sobre cómo convierte una conversación en una transacción. Eso segundo sí es defendible; el canal no, porque cinco competidores ya están dentro.</p>
+<p>Los tres activos que podrían ser moat, y ninguno lo es por separado: conversión conversacional medida, profundidad de configuración multi-tenant y adaptadores acumulados por partner. Juntos producen algo que un competidor con más capital no puede comprar rápido: la capacidad de lanzar al siguiente socio sin escribir código.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">14 · Oportunidades de producto</h2>
+<table>
+<thead><tr><th>Oportunidad</th><th>Cliente</th><th>Problema que resuelve</th><th>Urgencia</th></tr></thead>
+<tbody>
+<tr><td><b>Consola de configuración de partner</b></td><td>Interno y socio</td><td>Cada lanzamiento es un proyecto de ingeniería</td><td>Alta</td></tr>
+<tr><td><b>Transacción completa dentro del chat</b></td><td>Remitente</td><td>El salto al navegador es el principal punto de abandono</td><td>Alta</td></tr>
+<tr><td><b>Framework de adaptadores de payout</b></td><td>Interno</td><td>Cada core bancario distinto multiplica el costo de integración</td><td>Alta</td></tr>
+<tr><td><b>Analytics de funnel para el socio</b></td><td>Institución</td><td>El socio no ve qué pasa con su propio cliente</td><td>Media</td></tr>
+<tr><td><b>Identidad y KYC reutilizable</b></td><td>Remitente</td><td>Verificar dos veces al mismo usuario en dos programas</td><td>Media</td></tr>
+<tr><td><b>Optimización de fondeo exento del 1 %</b></td><td>Remitente y socio</td><td>El impuesto federal grava el fondeo en efectivo</td><td>Media</td></tr>
+<tr><td><b>Red coop ↔ credit union</b></td><td>Ambas instituciones</td><td>Corredor con nómina cautiva en origen y efectivo en destino</td><td>Baja hoy, alta opcionalidad</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">15 · Modelo de negocio</h2>
+<p class="sub">Un hecho gobierna todo lo demás: en B2B, el spread FX se lo queda el socio.</p>
+<p><span class="tag i">Inferencia</span> Zapp pierde acceso a la principal fuente de margen del negocio de remesas y simultáneamente asume el costo de servir a una institución. Eso obliga a que el precio no se parezca al de un MTO, sino al de una plataforma: componente fijo por programa, componente variable por transacción exitosa, y cobro explícito por lo que hoy se regala.</p>
+<ul>
+<li><b>Setup por programa.</b> Paga el costo de certificación y de configuración inicial, y filtra a los socios que no van a lanzar.</li>
+<li><b>Suscripción por programa activo.</b> Cubre soporte, cumplimiento y evolución de plataforma.</li>
+<li><b>Variable por transacción exitosa.</b> Alinea el precio con el resultado que el socio compra.</li>
+<li><b>Personalización tarifada.</b> Toda excepción tiene precio de lista. Es el único mecanismo que convierte la customization trap en una decisión consciente de margen.</li>
+</ul>
+<p class="small">Cualquier cifra concreta de pricing es hipótesis hasta que exista una conversación de disposición a pagar con una federación. No la incluyo para no darle apariencia de dato.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">16 · Árbol de métricas</h2>
+<p class="sub">Nada de lo que sigue es un dato de desempeño actual de Zapp: es el sistema de medición que instalaría.</p>
+<p><b>North Star:</b> volumen incremental de remesas exitosas a través de canales operados con Zapp. <b>Métrica de plataforma acompañante:</b> porcentaje de lanzamientos sin ingeniería a medida.</p>
+<table>
+<thead><tr><th>Nivel</th><th>Métrica</th><th>Para qué se usa</th></tr></thead>
+<tbody>
+<tr><td>Conversión</td><td>Tasa por paso: chat → cotización → KYC → fondeo → payout</td><td>Es el argumento de venta B2B completo</td></tr>
+<tr><td>Conversión</td><td>Transacciones completadas sin salir del chat</td><td>Mide el diferenciador real contra Ria y Remitly</td></tr>
+<tr><td>Plataforma</td><td>Time-to-live del partner</td><td>Distingue plataforma de consultora</td></tr>
+<tr><td>Plataforma</td><td>Lanzamientos sin código a medida</td><td>Detección temprana de la customization trap</td></tr>
+<tr><td>Operación</td><td>Contactos de soporte por cada 1.000 transacciones y su causa</td><td>Prioriza el motor conversacional frente al payout</td></tr>
+<tr><td>Negocio</td><td>Margen por partner, con costo de personalización asignado</td><td>Hace visible el margen negativo antes de que sea estructural</td></tr>
+<tr><td>Retención</td><td>Remitentes recurrentes por programa</td><td>Es la fidelidad que el socio institucional está comprando</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">17 · Riesgos</h2>
+<p class="sub">Con detectabilidad, porque en producto financiero el riesgo peligroso no es el más probable: es el que no se ve hasta que ya causó daño.</p>
+<table>
+<thead><tr><th>Riesgo</th><th>Impacto</th><th>Detectabilidad</th><th>Mitigación</th></tr></thead>
+<tbody>
+<tr><td><b>El acuerdo con Spectrum no admite programas de terceros</b></td><td>Crítico</td><td>Alta, si se pregunta</td><td>Revisión de contrato antes de escribir código; ICP alternativo con licencia propia</td></tr>
+<tr><td><b>Customization trap</b></td><td>Crítico</td><td>Muy baja</td><td>Consola de configuración, precio de lista para excepciones, métrica publicada</td></tr>
+<tr><td><b>Margen negativo por partner</b></td><td>Alto</td><td>Baja</td><td>Asignar costo de personalización al partner que lo causa</td></tr>
+<tr><td><b>Código B2C acoplado, sin multi-tenancy</b></td><td>Alto</td><td>Media</td><td>Auditoría de acoplamiento en los primeros 30 días</td></tr>
+<tr><td><b>Exclusividad contractual de AirPak en las federaciones</b></td><td>Alto</td><td>Media</td><td>Verificar el convenio antes de comprometer pipeline</td></tr>
+<tr><td><b>El competidor ya resuelve por configuración</b></td><td>Alto</td><td>Baja hoy</td><td>Sandbox o conversación con un partner de Intermex</td></tr>
+<tr><td><b>Cores heterogéneos dentro de una federación</b></td><td>Medio</td><td>Alta en discovery</td><td>Diseño de adaptadores desde el primer piloto</td></tr>
+<tr><td><b>Concentración: un solo partner grande</b></td><td>Medio</td><td>Alta</td><td>Segundo partner antes de profundizar el primero</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">18 · Ideas que vale la pena desafiar</h2>
+<p class="sub">Tesis contrarias a mi propia conclusión. Las incluyo porque un memo que solo argumenta a favor de su recomendación no es análisis, es promoción.</p>
+<ol>
+<li><b>El wedge correcto son los MTOs, no las cooperativas.</b> Ciclo de venta corto, licencia propia, cero dependencia de Spectrum. Si el pipeline actual son todos MTOs, el mercado ya respondió y yo estoy equivocado.</li>
+<li><b>El canal sí es el moat.</b> Si la conversión in-chat de Zapp resulta muy superior a la de un checkout web, la ventaja es el canal y la plataforma es una distracción costosa.</li>
+<li><b>La plataforma llega demasiado tarde.</b> Si Rails by Intermex ya resuelve por configuración lo que Zapp planea construir, la carrera es de alcance y no de diferenciación.</li>
+<li><b>Las federaciones no quieren originar.</b> Sus convenios pueden significar comodidad, no carencia. Una sola conversación con MICOOPE o FEDECACES lo resuelve.</li>
+<li><b>El B2C es el mejor negocio y el B2B lo canibaliza.</b> Cada programa white-label crea un competidor de la marca propia en el mismo corredor.</li>
+<li><b>Las stablecoins importan más de lo que digo.</b> Si el costo de prefunding es el que limita el crecimiento del socio, el rail de settlement es el producto.</li>
+<li><b>Guatemala es el mercado equivocado para el primer piloto.</b> Mejores datos y contrapartes más digitales podrían ganarle a un incumbente menos avanzado.</li>
+<li><b>La consola de configuración es prematura.</b> Con dos partners, una hoja de configuración y un ingeniero rinden más que una consola.</li>
+</ol>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">19 · Preguntas al liderazgo</h2>
+<p class="sub">No son preguntas de entrevista. Son las decisiones cuya respuesta determina si Zapp puede convertirse en una plataforma B2B escalable, y varias invalidarían buena parte de este documento.</p>
+<h4>Podrían cambiar la estrategia por completo</h4>
+<ul>
+<li>¿El acuerdo con Spectrum admite programas white-label de terceros?</li>
+<li>¿Dónde fija el liderazgo la frontera de plataforma, y está dispuesto a rechazar ingresos para defenderla?</li>
+<li>¿Qué arquitectura financiera objetivo quiere Zapp, y está dispuesta a volverse intensiva en balance?</li>
+<li>¿Cuál es la tasa de conversión real del funnel conversacional actual?</li>
+</ul>
+<h4>Se pueden responder después</h4>
+<p>Qué porcentaje del settlement se hará con stablecoins a tres años, si el beneficiario podría recibir una tarjeta virtual, qué proveedor de KYC preferimos, cómo se llamará la consola. Son reales, pero ninguna bloquea una decisión de arquitectura hoy.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">20 · Primeros 90 días</h2>
+<p class="sub">Organizado por resultados, no por semanas de onboarding. Cada fase termina en decisiones tomadas y artefactos entregados.</p>
+<table>
+<thead><tr><th style="width:14%">Fase</th><th>Preguntas clave</th><th>Artefactos</th><th>Resultado medible</th></tr></thead>
+<tbody>
+<tr><td><b>0–30<br>Entender</b></td><td>¿Qué permite el acuerdo con Spectrum? ¿Cómo se mueve hoy el dinero? ¿Convierte el funnel? ¿Se puede fragmentar el código? ¿Qué pide el pipeline?</td><td>Mapa de arquitectura financiera actual · instrumentación del funnel · inventario de lo propio contra lo de Spectrum · notas de entrevistas internas</td><td>Funnel instrumentado y baseline de conversión publicado. Ninguna decisión todavía, deliberadamente</td></tr>
+<tr><td><b>31–60<br>Decidir</b></td><td>¿Cuál es el ICP? ¿Dónde queda la frontera? ¿Qué primitivas de configuración? ¿Qué rails y qué partners?</td><td>Documento de estrategia B2B · arquitectura de la consola y del adapter framework · North Star y árbol de métricas · lista de cuentas objetivo</td><td>Estrategia firmada por CEO, ingeniería y compliance</td></tr>
+<tr><td><b>61–90<br>Ejecutar</b></td><td>¿Qué se lanza primero? ¿Cómo se certifica un partner? ¿Cómo se mide un lanzamiento sin código?</td><td>Roadmap Now/Next/Later · playbook de onboarding enterprise · primer partner en sandbox · OKR de porcentaje sin bespoke</td><td>Primer partner en sandbox y proceso de certificación documentado</td></tr>
+</tbody>
+</table>
+<h3>Con quién hablaría</h3>
+<p>Fundadores y CEO para la frontera de plataforma y el apetito de riesgo regulatorio. Compliance para el alcance del acuerdo con Spectrum. Tesorería para la arquitectura financiera real. Ingeniería para el acoplamiento del código B2C. Producto y datos para la conversión del funnel. Operaciones para dónde se rompe la experiencia hoy. Ventas para qué está pidiendo el mercado. Y fuera de la empresa: liderazgo y TI de una federación cooperativa, un partner actual de Intermex RaaS, y WOCCU por el corredor coop ↔ coop.</p>
+</section>
+
+<section class="chap">
+<h2 style="border-top:0;padding-top:0">21 · Conclusión</h2>
+<table>
+<tbody>
+<tr><th style="width:30%">Mejor ICP</th><td>Federaciones cooperativas del Triángulo Norte, vendiendo a la federación. ICP simétrico: credit unions y CDFIs hispanas en EE. UU., que traen su propio marco regulado.</td></tr>
+<tr><th>Mejor wedge inicial</th><td>Un canal conversacional white-label de originación EE. UU. hacia una sola federación, con payout dentro de su red, lanzado en semanas sobre rails de terceros. Un piloto, no cinco.</td></tr>
+<tr><th>Frontera de plataforma</th><td>Conversational + orchestration. Construir canal, motor conversacional, máquina de estados, routing, consola de configuración y analytics. Orquestar todo lo demás.</td></tr>
+<tr><th>Arquitectura financiera</th><td>Híbrida y configurable por partner. Nunca balance propio de Zapp antes de tener volumen.</td></tr>
+<tr><th>Rol de las stablecoins</th><td>Rail de settlement invisible, consumido como API. No producto de consumo, no red propia, no diferenciador.</td></tr>
+<tr><th>Oportunidad más importante</th><td>La consola de configuración de partner. Es la que convierte cada venta en producto en lugar de en proyecto.</td></tr>
+<tr><th>Mayor amenaza</th><td>Félix for Business y Rails by Intermex, en ese orden.</td></tr>
+<tr><th>Mayor riesgo tecnológico</th><td>Que la base de código B2C esté acoplada y no admita multi-tenancy sin reescritura.</td></tr>
+<tr><th>Mayor riesgo regulatorio</th><td>Que el acuerdo con Spectrum no permita anidar programas de terceros. Invalida el ICP recomendado.</td></tr>
+<tr><th>Incógnita más importante</th><td>La conversión real del funnel conversacional. Es el único activo diferenciado y hoy no está cuantificado.</td></tr>
+<tr><th>Tres apuestas</th><td>Consola de configuración de partner · framework de adaptadores de payout · motor conversacional determinista con transacción completa dentro del chat.</td></tr>
+<tr><th>North Star</th><td>Volumen incremental de remesas exitosas a través de canales operados con Zapp, con porcentaje de lanzamientos sin ingeniería a medida como métrica de plataforma.</td></tr>
+<tr><th>Nivel de confianza</th><td>Alta en el diagnóstico competitivo y en la frontera de plataforma. Media en el ICP, porque depende del alcance del acuerdo con Spectrum y de la disposición a pagar de una federación. Baja en cualquier cifra de tesorería o de stablecoins.</td></tr>
+</tbody>
+</table>
+<div class="callout a">
+<div class="lab">Mi hipótesis de producto</div>
+<p style="font-size:12.5pt;line-height:1.65">Zapp puede convertirse en la capa de distribución conversacional y orquestación para federaciones cooperativas y bancos regionales de Centroamérica que ya tienen el último kilómetro pero no el primero, controlando la conversación, la máquina de estados transaccional y la configuración multi-tenant, pero sin construir licencias, redes de payout, rails de stablecoins ni tesorería propia, porque su ventaja podría estar en convertir una conversación en una transacción completada y en lanzar el siguiente partner sin escribir código.</p>
+</div>
+<p class="small">Cada segmento de esa frase está sostenido por evidencia citada en este documento. La única parte donde digo «podría» es la última, y lo digo en serio: es una hipótesis hasta que exista el dato de conversión.</p>
+<h3>El valor que buscaría crear liderando este producto</h3>
+<ul>
+<li><b>Identificar el problema enterprise correcto</b> — no el segmento más grande, sino aquel cuya carencia es específica, repetida y no comprable por su cuenta.</li>
+<li><b>Reducir la complejidad de implementación</b> hasta que lanzar un partner deje de ser un proyecto y pase a ser una configuración.</li>
+<li><b>Convertir integraciones en capacidades de plataforma</b>, de modo que cada cliente difícil deje algo reutilizable en lugar de una rama del código.</li>
+<li><b>Entender los rails financieros de verdad</b> — la diferencia entre la experiencia transaccional y el movimiento real de fondos es donde se rompen los productos de remesas.</li>
+<li><b>Alinear arquitectura de producto con economía del negocio</b>, tratando la personalización como lo que es: una decisión de margen, no de ingeniería.</li>
+</ul>
+<footer class="doc">
+<p class="small">Otto Salvador · ottosalvador.com/zapp · Documento de iniciativa propia. No es un documento de Zapp ni contiene información confidencial de la empresa. Las cifras de terceros provienen de fuentes públicas citadas en el cuerpo del texto; la prueba del producto es propia y cualitativa.</p>
+<p class="small"><a href="Zapp.html">Volver a la página de resumen</a></p>
+</footer>
+</section>
+
+</doc-page>
+<script src="doc-page.js"></script>
+</body>
+</html>

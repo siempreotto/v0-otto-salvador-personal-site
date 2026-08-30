@@ -1,0 +1,14 @@
+:root{
+  /* the whole system moves at one speed with the browser default ease */
+  --duration-fast:.15s; /* @kind other */
+  --duration-slow:.3s; /* @kind other */
+  --ease:ease; /* @kind other */
+  --transition-control:opacity var(--duration-fast),background var(--duration-fast),color var(--duration-fast); /* @kind other */
+  --transition-card:border-color var(--duration-fast),background var(--duration-fast); /* @kind other */
+  --marquee-duration:40s; /* @kind other */
+  /* interaction constants */
+  --hover-opacity:.9; /* @kind other */
+  --hover-opacity-soft:.8; /* @kind other */
+  --hover-opacity-link:.7; /* @kind other */
+  --disabled-opacity:.5; /* @kind other */
+}

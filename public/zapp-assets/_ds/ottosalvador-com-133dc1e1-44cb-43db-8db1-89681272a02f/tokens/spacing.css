@@ -1,0 +1,30 @@
+:root{
+  /* 4px scale, Tailwind-aligned */
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-10:40px;
+  --space-11:44px;
+  --space-14:56px;
+  --space-18:72px;
+
+  /* control heights (shadcn "new-york" sizing) */
+  --control-h-sm:32px;
+  --control-h:36px;
+  --control-h-lg:40px;
+
+  /* layout */
+  --page-max:1120px;
+  --page-inner-max:1100px;
+  --prose-max:760px;
+  --lede-max:640px;
+  --page-pad-x:40px;
+  --page-pad-y:72px;
+  --icon-control:16px;
+  --icon-inline:20px;
+  --icon-hero:24px;
+}
